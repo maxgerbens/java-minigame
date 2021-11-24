@@ -30,10 +30,13 @@ public class Spawn {
                 handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler));
             } else if(hud.getLevel() == 5) {
                 handler.addObject(new SmartEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.SmartEnemy, handler));
-            } else if(hud.getLevel() == 6){
-                handler.addObject(new BossEnemy((Game.WIDTH / 2) -48 , -120, ID.BossEnemy, handler));
+            } else if(hud.getLevel() == 6) {
+                handler.addObject(new BossEnemy((Game.WIDTH / 2) - 48, -120, ID.BossEnemy, handler));
             } else if(HUD.HEALTH == 0) {
                 System.exit(1);
+            }
+            else if(hud.getLevel() == 6){
+                handler.addObject(new BossEnemy((Game.WIDTH / 2) -48 , -120, ID.BossEnemy, handler));
             }
         }
     }
