@@ -7,11 +7,14 @@ public class KeyInput extends KeyAdapter {
 
     private Handler handler;
     private Boolean[] keyDown = new Boolean[4];
+    private Game game;
+
 
 
     public KeyInput(Handler handler) {
 
         this.handler = handler;
+        this.game = game;
 
         keyDown[0] = false;
         keyDown[1] = false;
@@ -33,7 +36,9 @@ public class KeyInput extends KeyAdapter {
             }
         }
 
-        if(key == KeyEvent.VK_ESCAPE) System.exit(1);
+        if(key == KeyEvent.VK_ESCAPE) {
+            game.gameState = Game.STATE.Menu;
+        }
     }
 
     public void keyReleased(KeyEvent e){
