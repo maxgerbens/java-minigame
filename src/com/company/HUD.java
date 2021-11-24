@@ -40,7 +40,8 @@ public class HUD {
 
         g.drawString("Score: " + score, 15, 64);
         g.drawString("Level: " + level, 15, 80);
-        g.drawString("Health " + HEALTH, 15, 96);
+        g.drawString("Health: " + HEALTH, 15, 96);
+        g.drawString("Next Level: " + (level + 1), 15, 112);
     }
 
     public void score(int score){
