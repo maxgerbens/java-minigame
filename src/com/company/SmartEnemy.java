@@ -6,6 +6,8 @@ public class SmartEnemy extends GameObject {
 
     private Handler handler;
     private GameObject player;
+    private HUD hud;
+
 
     public SmartEnemy(int x, int y, ID id, Handler handler){
         super(x, y, id);
@@ -29,11 +31,12 @@ public class SmartEnemy extends GameObject {
 
         float diffx = x - player.getX() - 8;
         float diffy = y - player.getY() - 8;
+        float speed = (float) -1.5;
 
         float distance = (float) Math.sqrt((x-player.getX())*(x-player.getX()) + (y-player.getY())*(y-player.getY()));
 
-        velX = (float) ((-1.0/distance) * diffx);
-        velY = (float) ((-1.0/distance) * diffy);
+        velX = (float) ((speed/distance) * diffx);
+        velY = (float) ((speed/distance) * diffy);
 
         if(y <= 0 || y >= Game.HEIGHT - 32 ) velY *= -1;
         if(x <= 0 || x >= Game.WIDTH - 16 ) velX *= -1;

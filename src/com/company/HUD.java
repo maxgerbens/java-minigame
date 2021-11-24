@@ -9,11 +9,22 @@ public class HUD {
 
     private int score = 0;
     private int level = 1;
+    private int speed = (int) -1.5;
+    public int getSpeed(){
+        final int speed = this.speed;
+        return speed;
+    }
+    public int setSpeed(){
+        return speed = (int) (this.speed -0.5);
+    }
 
     public void tick(){
         HEALTH = Game.clamp(HEALTH, 0, 100);
         greenValue = Game.clamp(greenValue, 0, 255);
         greenValue = HEALTH * 2;
+        if(HEALTH == 0){
+            System.exit(1);
+        }
 
         score++;
 
@@ -29,6 +40,7 @@ public class HUD {
 
         g.drawString("Score: " + score, 15, 64);
         g.drawString("Level: " + level, 15, 80);
+        g.drawString("Health " + HEALTH, 15, 96);
     }
 
     public void score(int score){

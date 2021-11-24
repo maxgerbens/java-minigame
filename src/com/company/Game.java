@@ -17,14 +17,11 @@ public class Game extends Canvas implements Runnable {
     public Game(){
         new Window(WIDTH, HEIGHT, "Crosser", this);
         handler = new Handler();
-
         hud = new HUD();
         spawn = new Spawn(handler, hud);
         this.addKeyListener(new KeyInput(handler));
         r = new Random();
         handler.addObject(new Player(WIDTH/2-32, HEIGHT/2-32, ID.player, handler));
-        handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler));
-
     }
     public synchronized void start(){
         thread = new Thread(this);
