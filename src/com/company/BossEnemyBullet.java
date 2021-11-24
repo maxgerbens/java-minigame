@@ -30,7 +30,7 @@ public class BossEnemyBullet extends GameObject {
         //if(x <= 0 || x >= Game.WIDTH - 16 ) velX *= -1;
 
         if(y >= Game.HEIGHT) handler.removeObject(this);
-        handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.white, 16, 16, 0.02f, handler   ));
+        handler.addObject(new Trail((int)x, (int)y, ID.Trail, Color.white, 16, 16, 0.05f, handler   ));
 
     }
 
