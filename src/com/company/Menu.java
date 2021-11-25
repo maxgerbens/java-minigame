@@ -61,6 +61,7 @@ public class Menu extends MouseAdapter  {
                 handler.clearEnemies();
                 game.gameState = Game.STATE.Game;
                 handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.player, handler));
+                handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler));
                 return;
             }
 
@@ -143,7 +144,7 @@ public class Menu extends MouseAdapter  {
             g.drawRect(325, 400, 250, 64);
             g.drawString("Try Again", 385, 442);
             g.drawRect(325, 500, 250, 64);
-            g.drawString("Menu", 385, 542);
+            g.drawString("Menu", 410, 542);
 
         }
 
