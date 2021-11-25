@@ -60,6 +60,7 @@ public class Menu extends MouseAdapter  {
                 hud.setScore(0);
                 handler.clearEnemies();
                 game.gameState = Game.STATE.Game;
+                handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.player, handler));
                 return;
             }
 
