@@ -94,7 +94,7 @@ public class Game extends Canvas implements Runnable {
             hud.tick();
             spawn.tick();
             if(HUD.HEALTH <= 0) {
-                handler.clearEnemies();
+                handler.object.clear();
                 HUD.HEALTH = 100;
                 gameState = STATE.End;
                 for(int i = 0; i < 10; i++){
