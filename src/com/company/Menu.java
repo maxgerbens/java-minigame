@@ -27,8 +27,8 @@ public class Menu extends MouseAdapter  {
         if(game.gameState == Game.STATE.Menu) {
 
             if (mouseOver(mx, my, 325, 200, 250, 64)) {
+                AudioPlayer.getSound("click");
                 handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.player, handler));
-
                 game.gameState = Game.STATE.Game;
                 //Adds player to the game
                 handler.clearEnemies();
