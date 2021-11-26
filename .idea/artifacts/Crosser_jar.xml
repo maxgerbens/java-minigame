@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Crosser:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Crosser_jar</output-path>
+    <root id="archive" name="Crosser.jar">
+      <element id="module-output" name="Crosser" />
+    </root>
+  </artifact>
+</component>

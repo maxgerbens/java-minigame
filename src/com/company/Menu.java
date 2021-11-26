@@ -56,7 +56,7 @@ public class Menu extends MouseAdapter  {
 
         if(game.gameState == Game.STATE.End){
             if(mouseOver(mx, my, 325, 400, 250, 64)) {
-                hud.setLevel(0);
+                hud.setLevel(1);
                 hud.setScore(0);
                 handler.clearEnemies();
                 game.gameState = Game.STATE.Game;
