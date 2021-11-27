@@ -11,6 +11,8 @@ public class Game extends Canvas implements Runnable {
     private Thread thread;
     private boolean running = false;
 
+    public static boolean paused = false;
+
     private Random r;
     private Handler handler;
     private HUD hud;
@@ -21,8 +23,18 @@ public class Game extends Canvas implements Runnable {
         Menu,
         Game,
         Help,
+        Select,
         End
     };
+
+    public void DrawMenu(Graphics g){
+        g.setColor(Color.white);
+
+
+        g.drawRect(325, 200, 250, 64);
+        g.drawString("Quit", 420, 240);
+
+    }
 
     public static STATE gameState = STATE.Menu;
     public Game(){
@@ -33,6 +45,7 @@ public class Game extends Canvas implements Runnable {
         this.addMouseListener(menu);
         AudioPlayer.load();
         AudioPlayer.getMusic("music").loop();
+        AudioPlayer.getMusic("music").setVolume(0.1f);
         new Window(WIDTH, HEIGHT, "Crosser", this);
 
         spawn = new Spawn(handler, hud);
@@ -91,20 +104,23 @@ public class Game extends Canvas implements Runnable {
     }
 
     private void tick(){
-        handler.tick();
         if(gameState == STATE.Game) {
-            hud.tick();
-            spawn.tick();
-            if(HUD.HEALTH <= 0) {
-                handler.object.clear();
-                HUD.HEALTH = 100;
-                gameState = STATE.End;
-                for(int i = 0; i < 10; i++){
-                    handler.addObject(new MenuPartical(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuPartical, handler));
+            if(!paused) {
+                hud.tick();
+                spawn.tick();
+                handler.tick();
+                if (HUD.HEALTH <= 0) {
+                    handler.object.clear();
+                    HUD.HEALTH = 100;
+                    gameState = STATE.End;
+                    for (int i = 0; i < 10; i++) {
+                        handler.addObject(new MenuPartical(r.nextInt(WIDTH), r.nextInt(HEIGHT), ID.MenuPartical, handler));
+                    }
                 }
             }
         } else if(gameState == STATE.Menu || gameState == STATE.End){
             menu.tick();
+            handler.tick();
         }
     }
 
@@ -120,6 +136,10 @@ public class Game extends Canvas implements Runnable {
                 g.fillRect(0,0,WIDTH, HEIGHT);
 
                 handler.render(g);
+
+                if(paused){
+                    DrawMenu(g);
+                }
                 if(gameState == STATE.Game) {
                     hud.render(g);
                 } else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){

@@ -37,7 +37,13 @@ public class KeyInput extends KeyAdapter {
         }
 
         if(key == KeyEvent.VK_ESCAPE) {
-            game.gameState = Game.STATE.Menu;
+            if(Game.gameState == Game.STATE.Game) {
+                if (Game.paused) {
+                    Game.paused = false;
+                } else {
+                    Game.paused = true;
+                }
+            }
         }
     }
 
