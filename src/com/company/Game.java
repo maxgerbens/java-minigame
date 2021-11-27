@@ -118,7 +118,7 @@ public class Game extends Canvas implements Runnable {
                     }
                 }
             }
-        } else if(gameState == STATE.Menu || gameState == STATE.End){
+        } else if(gameState == STATE.Menu || gameState == STATE.End || gameState == STATE.Select){
             menu.tick();
             handler.tick();
         }
@@ -142,7 +142,7 @@ public class Game extends Canvas implements Runnable {
                 }
                 if(gameState == STATE.Game) {
                     hud.render(g);
-                } else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End){
+                } else if(gameState == STATE.Menu || gameState == STATE.Help || gameState == STATE.End || gameState == STATE.Select) {
                     menu.render(g);
                 }
 

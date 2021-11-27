@@ -19,7 +19,11 @@ public class Menu extends MouseAdapter  {
 
     public void PlayMenuSound(){
         AudioPlayer.getSound("click").play();
-
+    }
+    public void addMenuParticles(){
+        for(int i = 0; i < 10; i++){
+            handler.addObject(new MenuPartical(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.MenuPartical, handler));
+        }
     }
 
     public void mousePressed(MouseEvent e){
@@ -31,6 +35,7 @@ public class Menu extends MouseAdapter  {
         if(game.gameState == Game.STATE.Menu) {
 
             if (mouseOver(mx, my, 325, 200, 250, 64)) {
+                /*
                 handler.addObject(new Player(Game.WIDTH / 2 - 32, Game.HEIGHT / 2 - 32, ID.player, handler));
                 PlayMenuSound();
                 game.gameState = Game.STATE.Game;
@@ -38,6 +43,9 @@ public class Menu extends MouseAdapter  {
                 handler.clearEnemies();
                 //Adds level 1 enemy to the game
                 handler.addObject(new BasicEnemy(r.nextInt(Game.WIDTH), r.nextInt(Game.HEIGHT), ID.BasicEnemy, handler));
+                 */
+                Game.gameState = Game.STATE.Select;
+                addMenuParticles();
             }
 
             //Help button
