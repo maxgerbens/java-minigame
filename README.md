@@ -1,8 +1,8 @@
 CONTENTS OF THIS README
 ---------------------
 
- * [Description](https://github.com/maxgerbens/Crosser/README.md#description)
- * [How to use](https://github.com/maxgerbens/Crosser/README.md#how-to-use)
+ * Description
+ * How to use
 
 
 DESCRIPTION
