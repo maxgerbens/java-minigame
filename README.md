@@ -4,6 +4,7 @@ CONTENTS OF THIS README
  * Description
  * How to use
 
+![](https://gcdnb.pbrd.co/images/1NhV8Zj62J83.png?o=1 "Image of the game")
 
 DESCRIPTION
 ------------
